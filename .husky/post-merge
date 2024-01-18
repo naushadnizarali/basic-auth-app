@@ -1,0 +1,11 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# remove gc.log
+[ -e .git/gc.log ] && rm .git/gc.log
+
+# clean up each developers local git repo whenever they merge code
+git fetch origin --prune && git tag -l | xargs git tag -d && git fetch -t
+
+# after merging code, new package.json dependencies might be introduced
+pnpm install --frozen-lockfile
