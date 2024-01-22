@@ -1,5 +1,5 @@
 {
-  "name": "@apps/source",
+  "name": "workspace",
   "$schema": "node_modules/nx/schemas/project-schema.json",
   "targets": {
     "local-registry": {
@@ -8,6 +8,29 @@
         "port": 4873,
         "config": ".verdaccio/config.yml",
         "storage": "tmp/local-registry/storage"
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "baseBranch": "develop",
+        "changelogHeader": "<br/>👨 Developed and maintained with ❤️ by [PeopleSourcePlus](https://peoplesourceplus.com)<br/>",
+        "commitMessageFormat": "build(release): version v${version}",
+        "commitParserOptions": {
+          "headerCorrespondence": [
+            "ticketReference",
+            "type",
+            "scope",
+            "subject"
+          ],
+          "headerPattern": "^([A-Z]{3,}-\\d{1,5}):? (chore|build|ci|docs|feat|fix|perf|refactor|test)(?:\\(([\\w-]+)\\))?\\S* (.+)$"
+        },
+        "preset": "conventional",
+        "skipCommitTypes": [],
+        "skipProjectChangelog": true,
+        "skipRootChangelog": false,
+        "syncVersions": true,
+        "tagPrefix": "v"
       }
     }
   }
