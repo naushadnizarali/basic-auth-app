@@ -1,3 +1,4 @@
+import { UsersModule } from '@backend/kernel/users';
 import { BackendUtilityDatabaseModule } from '@backend/utility/database';
 import { HttpExceptionFilter } from '@backend/utility/filters';
 import { Module } from '@nestjs/common';
@@ -13,6 +14,7 @@ import { AppService } from './app.service';
       envFilePath: '.env',
     }),
     BackendUtilityDatabaseModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [

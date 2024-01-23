@@ -2,14 +2,14 @@ import { Injectable, Logger } from '@nestjs/common';
 import { DataSource } from 'typeorm';
 
 @Injectable()
-export class DbConnectService {
+export class DatabaseService {
   private readonly logger = new Logger('Database Service');
 
   async initializeDatabaseServices() {
     this.logger.debug('Creating Database DataSource...');
     const databaseDataSource = new DataSource({
       name: process.env['DB_CONN'],
-      type: 'mariadb',
+      type: 'mysql',
       // driver: 'mysql2',
       connectTimeout: 120000,
       host: process.env['DB_HOST'],

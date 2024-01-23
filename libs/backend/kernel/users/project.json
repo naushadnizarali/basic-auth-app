@@ -1,0 +1,31 @@
+{
+  "name": "users",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/backend/kernel/users/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/backend/kernel/users",
+        "tsConfig": "libs/backend/kernel/users/tsconfig.lib.json",
+        "packageJson": "libs/backend/kernel/users/package.json",
+        "main": "libs/backend/kernel/users/src/index.ts",
+        "assets": ["libs/backend/kernel/users/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/backend/kernel/users/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

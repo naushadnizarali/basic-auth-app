@@ -1,10 +1,10 @@
 import { Global, Module } from '@nestjs/common';
-import { DbConnectService } from './mariadb/db-connect.service';
+import { DatabaseService } from './database.service';
 
 @Global()
 @Module({
   controllers: [],
-  providers: [DbConnectService],
-  exports: [DbConnectService],
+  providers: [DatabaseService],
+  exports: [DatabaseService],
 })
 export class BackendUtilityDatabaseModule {}
