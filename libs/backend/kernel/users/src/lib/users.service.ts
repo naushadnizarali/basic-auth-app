@@ -1,18 +1,34 @@
 import { prisma as PrismaService } from '@backend/utility/database';
+import { PasswordService } from '@backend/utility/helpers';
 import { Injectable } from '@nestjs/common';
-import { Prisma, Users as UsersModel } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 import { CreateUserDto, ListUserDto } from '@shared/data-transfer-objects';
 @Injectable()
 export class UsersService {
-  constructor() {}
+  constructor(private readonly passwordService: PasswordService) {}
 
   prisma = PrismaService;
 
+  select = {
+    id: true,
+    firstName: true,
+    lastName: true,
+    emailAddress: true,
+    contact: true,
+    addressLine1: true,
+    addressLine2: true,
+    userType: true,
+    isActive: true,
+    createdAt: true,
+    updatedAt: true,
+  };
+
   async user(
     userWhereUniqueInput: Prisma.UsersWhereUniqueInput
-  ): Promise<UsersModel | null> {
+  ): Promise<ListUserDto | null> {
     return this.prisma.users.findUnique({
       where: userWhereUniqueInput,
+      select: this.select,
     });
   }
 
@@ -23,20 +39,7 @@ export class UsersService {
     where?: Prisma.UsersWhereInput;
     orderBy?: Prisma.UsersOrderByWithRelationInput;
   }): Promise<ListUserDto[]> {
-    const select = {
-      id: true,
-      firstName: true,
-      lastName: true,
-      emailAddress: true,
-      contact: true,
-      addressLine1: true,
-      addressLine2: true,
-      userType: true,
-      isActive: true,
-      createdAt: true,
-      updatedAt: true,
-    };
-    if (!params) return this.prisma.users.findMany({ select });
+    if (!params) return this.prisma.users.findMany({ select: this.select });
 
     const { skip, take, cursor, where, orderBy } = params;
     return this.prisma.users.findMany({
@@ -45,19 +48,20 @@ export class UsersService {
       cursor,
       where,
       orderBy,
-      select,
+      select: this.select,
     });
   }
 
   async createUser(data: CreateUserDto): Promise<ListUserDto> {
-    const model = {
+    const model: Prisma.UsersCreateInput = {
       firstName: data.firstName,
       lastName: data.lastName,
       emailAddress: data.emailAddress,
-      password: data.password,
+      password: await this.passwordService.hashPassword(data.password),
       contact: data.contact,
       addressLine1: data.addressLine1,
       addressLine2: data.addressLine2,
+      isActive: data.isActive,
       userType: {
         connect: {
           id: data.userTypeId,
@@ -66,23 +70,26 @@ export class UsersService {
     };
     return this.prisma.users.create({
       data: model,
+      select: this.select,
     });
   }
 
   async updateUser(params: {
     where: Prisma.UsersWhereUniqueInput;
     data: Prisma.UsersUpdateInput;
-  }): Promise<UsersModel> {
+  }): Promise<ListUserDto> {
     const { where, data } = params;
     return this.prisma.users.update({
       data,
       where,
+      select: this.select,
     });
   }
 
-  async deleteUser(where: Prisma.UsersWhereUniqueInput): Promise<UsersModel> {
+  async deleteUser(where: Prisma.UsersWhereUniqueInput): Promise<ListUserDto> {
     return this.prisma.users.delete({
       where,
+      select: this.select,
     });
   }
 }

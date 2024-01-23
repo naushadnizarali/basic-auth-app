@@ -25,7 +25,7 @@ async function bootstrap() {
     .setTitle('Hire Safe APIs')
     .setDescription('Set of APIs to support Hire Safe Application')
     .setVersion('1.0')
-    // .addBearerAuth()
+    .addBearerAuth()
     .build();
 
   const docs = SwaggerModule.createDocument(app, swaggerOptions);

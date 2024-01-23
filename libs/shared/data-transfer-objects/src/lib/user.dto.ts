@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { BaseDto } from '../base.dto';
-import { ListUserTypeDto } from '../user-type.dto';
+import { BaseDto } from './base.dto';
+import { ListUserTypeDto } from './user-type.dto';
 
 export class CreateUserDto extends BaseDto {
   id!: number;

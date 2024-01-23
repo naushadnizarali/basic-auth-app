@@ -1,18 +1,13 @@
 ## Scaffolding commands
 
 - nx g @nx/nest:library --name=filters --buildable=true --publishable=true --directory=/libs/backend/utility --global=true --importPath=@backend/utility/filters --projectNameAndRootFormat=derived --simpleName=true
-
-- nx g @nx/nest:filter --name=exception-filter --directory=exception-filter --nameAndDirectoryFormat=as-provided
-
 - nx g @nx/nest:library --name=database --buildable=true --publishable=true --directory=/libs/backend/utility --global=true --importPath=@backend/utility/database --projectNameAndRootFormat=derived --simpleName=true
+- nx g @nx/nest:library --name=helpers --buildable=true --publishable=true --directory=/libs/backend/utility --global=true --importPath=@backend/utility/helpers --projectNameAndRootFormat=derived --simpleName=true
+- nx g @nx/nest:library --name=users --buildable=true --controller=true --directory=/libs/backend/kernel --importPath=@backend/kernel/users --projectNameAndRootFormat=derived --service=true --simpleName=true
+- nx g @nx/nest:library --name=auth --buildable=true --controller=true --directory=/libs/backend/kernel --importPath=@backend/kernel/auth --projectNameAndRootFormat=derived --service=true --simpleName=true
+- nx g @nx/nest:library --name=data-transfer-objects --directory=/libs/shared --buildable=true --importPath=@shared/data-transfer-objects --projectNameAndRootFormat=derived --simpleName=true
 
-  - nx g @nx/nest:service --name=mariadb/db-connect --nameAndDirectoryFormat=as-provided
-
-- nx g @nx/nest:library --name=kernel/users --buildable=true --controller=true --importPath=@backend/kernel/users --projectNameAndRootFormat=as-provided --service=true --simpleName=true
-- nx g @nx/nest:library --name=kernel/auth --buildable=true --controller=true --importPath=@backend/kernel/auth --projectNameAndRootFormat=as-provided --service=true --simpleName=true
-
-- nx g @nx/js:library --name=interfaces --unitTestRunner=jest --directory=/libs/shared/interfaces --importPath=@shared/interfaces --projectNameAndRootFormat=as-provided --simpleName=true
-- nx g @nx/nest:library --name=data-transfer-objects --buildable=true --importPath=@shared/data-transfer-objects --projectNameAndRootFormat=as-provided --simpleName=true
+- nx g @nx/js:library --name=interfaces --unitTestRunner=jest --directory=/libs/shared/interfaces --importPath=@shared/interfaces --projectNameAndRootFormat=derived --simpleName=true
 
 ## ORM Helper
 

@@ -15,11 +15,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@backend/kernel/auth": ["libs/backend/kernel/auth/src/index.ts"],
       "@backend/kernel/users": ["libs/backend/kernel/users/src/index.ts"],
       "@backend/utility/database": [
         "libs/backend/utility/database/src/index.ts"
       ],
       "@backend/utility/filters": ["libs/backend/utility/filters/src/index.ts"],
+      "@backend/utility/helpers": ["libs/backend/utility/helpers/src/index.ts"],
       "@shared/data-transfer-objects": [
         "libs/shared/data-transfer-objects/src/index.ts"
       ],

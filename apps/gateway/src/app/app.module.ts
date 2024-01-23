@@ -1,3 +1,4 @@
+import { BackendKernelAuthModule } from '@backend/kernel/auth';
 import { UsersModule } from '@backend/kernel/users';
 import { BackendUtilityDatabaseModule } from '@backend/utility/database';
 import { HttpExceptionFilter } from '@backend/utility/filters';
@@ -14,6 +15,7 @@ import { AppService } from './app.service';
       envFilePath: '.env',
     }),
     BackendUtilityDatabaseModule,
+    BackendKernelAuthModule,
     UsersModule,
   ],
   controllers: [AppController],
