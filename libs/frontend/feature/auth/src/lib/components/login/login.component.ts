@@ -10,4 +10,11 @@ export class LoginComponent extends ComponentBase {
   constructor(injector: Injector) {
     super(injector);
   }
+
+  // override async ngOnInit(): Promise<void> {
+  //   const response = await this.get<any[]>(
+  //     'https://jsonplaceholder.typicode.com/todos/1'
+  //   );
+  //   console.log(response);
+  // }
 }
