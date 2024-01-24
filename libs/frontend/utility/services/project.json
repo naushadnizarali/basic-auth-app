@@ -1,0 +1,37 @@
+{
+  "name": "frontend-utility--services",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/frontend/utility/services/src",
+  "prefix": "apps",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/frontend/utility/services/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/frontend/utility/services/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/frontend/utility/services/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/frontend/utility/services/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  }
+}

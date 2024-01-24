@@ -1,6 +1,6 @@
 ## Scaffolding commands
 
-- nx g @nx/react:application --name=portal-web --projectNameAndRootFormat=as-provided --routing=true
+### Backend
 
 - nx g @nx/nest:library --name=filters --buildable=true --publishable=true --directory=/libs/backend/utility --global=true --importPath=@backend/utility/filters --projectNameAndRootFormat=derived --simpleName=true
 - nx g @nx/nest:library --name=database --buildable=true --publishable=true --directory=/libs/backend/utility --global=true --importPath=@backend/utility/database --projectNameAndRootFormat=derived --simpleName=true
@@ -9,8 +9,16 @@
 - nx g @nx/nest:library --name=auth --buildable=true --controller=true --directory=/libs/backend/kernel --importPath=@backend/kernel/auth --projectNameAndRootFormat=derived --service=true --simpleName=true
 - nx g @nx/nest:library --name=data-transfer-objects --directory=/libs/shared --buildable=true --importPath=@shared/data-transfer-objects --projectNameAndRootFormat=derived --simpleName=true
 
+### Common
+
 - nx g @nx/js:library --name=interfaces --unitTestRunner=jest --directory=/libs/shared/interfaces --importPath=@shared/interfaces --projectNameAndRootFormat=derived --simpleName=true
 - nx g @nx/js:library --name=enums --unitTestRunner=jest --directory=/libs/shared/enums --importPath=@shared/enums --projectNameAndRootFormat=derived --simpleName=true
+
+### Frontend
+
+- nx g @nx/react:application --name=portal-web --projectNameAndRootFormat=as-provided --routing=true
+- nx g @nx/angular:library --name=services --buildable=true --directory=libs/frontend/utility/ --importPath=@frontend/utility/services --projectNameAndRootFormat=derived --simpleName=true --standalone=false --style=scss
+- nx g @nx/angular:library --name=auth --buildable=true --directory=libs/frontend/features/ --importPath=@frontend/features/auth --projectNameAndRootFormat=derived --simpleName=true --standalone=false --style=scss
 
 ## ORM Helper
 

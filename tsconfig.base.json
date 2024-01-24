@@ -22,6 +22,10 @@
       ],
       "@backend/utility/filters": ["libs/backend/utility/filters/src/index.ts"],
       "@backend/utility/helpers": ["libs/backend/utility/helpers/src/index.ts"],
+      "@frontend/features/auth": ["libs/frontend/features/auth/src/index.ts"],
+      "@frontend/utility/services": [
+        "libs/frontend/utility/services/src/index.ts"
+      ],
       "@shared/data-transfer-objects": [
         "libs/shared/data-transfer-objects/src/index.ts"
       ],
