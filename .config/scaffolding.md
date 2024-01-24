@@ -1,5 +1,7 @@
 ## Scaffolding commands
 
+- nx g @nx/react:application --name=portal-web --projectNameAndRootFormat=as-provided --routing=true
+
 - nx g @nx/nest:library --name=filters --buildable=true --publishable=true --directory=/libs/backend/utility --global=true --importPath=@backend/utility/filters --projectNameAndRootFormat=derived --simpleName=true
 - nx g @nx/nest:library --name=database --buildable=true --publishable=true --directory=/libs/backend/utility --global=true --importPath=@backend/utility/database --projectNameAndRootFormat=derived --simpleName=true
 - nx g @nx/nest:library --name=helpers --buildable=true --publishable=true --directory=/libs/backend/utility --global=true --importPath=@backend/utility/helpers --projectNameAndRootFormat=derived --simpleName=true
