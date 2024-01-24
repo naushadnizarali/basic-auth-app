@@ -20,7 +20,11 @@
           "apps/web-portal/src/favicon.ico",
           "apps/web-portal/src/assets"
         ],
-        "styles": ["apps/web-portal/src/styles.scss"],
+        "styles": [
+          "apps/web-portal/src/styles.scss",
+          "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+          "node_modules/primeng/resources/primeng.min.css"
+        ],
         "scripts": []
       },
       "configurations": {

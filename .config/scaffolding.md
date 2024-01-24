@@ -18,7 +18,10 @@
 
 - nx g @nx/react:application --name=portal-web --projectNameAndRootFormat=as-provided --routing=true
 - nx g @nx/angular:library --name=services --buildable=true --directory=libs/frontend/utility/ --importPath=@frontend/utility/services --projectNameAndRootFormat=derived --simpleName=true --standalone=false --style=scss
-- nx g @nx/angular:library --name=auth --buildable=true --directory=libs/frontend/features/ --importPath=@frontend/features/auth --projectNameAndRootFormat=derived --simpleName=true --standalone=false --style=scss
+- nx g @nx/angular:library --name=common --buildable=true --directory=libs/frontend/utility/ --importPath=@frontend/utility/common --projectNameAndRootFormat=derived --simpleName=true --standalone=false --style=scss
+- nx g @nx/angular:library --name=ui --buildable=true --directory=libs/frontend/utility/ui --lazy=true --routing=true --importPath=@frontend/utility/ui --prefix=utility-ui --projectNameAndRootFormat=as-provided --simpleName=true --standalone=false --style=scss
+- nx g @nx/angular:library --name=auth --buildable=true --directory=libs/frontend/feature/auth --lazy=true --routing=true --importPath=@frontend/feature/auth --prefix=feature-auth --projectNameAndRootFormat=as-provided --simpleName=true --standalone=false --style=scss
+  - nx g @nx/angular:component --name=login --directory=components/login --export=true --standalone=false --nameAndDirectoryFormat=as-provided
 
 ## ORM Helper
 

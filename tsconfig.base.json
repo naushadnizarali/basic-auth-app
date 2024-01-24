@@ -22,10 +22,12 @@
       ],
       "@backend/utility/filters": ["libs/backend/utility/filters/src/index.ts"],
       "@backend/utility/helpers": ["libs/backend/utility/helpers/src/index.ts"],
-      "@frontend/features/auth": ["libs/frontend/features/auth/src/index.ts"],
+      "@frontend/feature/auth": ["libs/frontend/feature/auth/src/index.ts"],
+      "@frontend/utility/common": ["libs/frontend/utility/common/src/index.ts"],
       "@frontend/utility/services": [
         "libs/frontend/utility/services/src/index.ts"
       ],
+      "@frontend/utility/ui": ["libs/frontend/utility/ui/src/index.ts"],
       "@shared/data-transfer-objects": [
         "libs/shared/data-transfer-objects/src/index.ts"
       ],

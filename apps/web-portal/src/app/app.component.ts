@@ -1,4 +1,5 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, Injector, ViewEncapsulation } from '@angular/core';
+import { ComponentBase } from '@frontend/utility/common';
 
 @Component({
   selector: 'web-portal-root',
@@ -6,6 +7,9 @@ import { Component, ViewEncapsulation } from '@angular/core';
   styleUrl: './app.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent {
+export class AppComponent extends ComponentBase {
+  constructor(injector: Injector) {
+    super(injector);
+  }
   title = 'web-portal';
 }
