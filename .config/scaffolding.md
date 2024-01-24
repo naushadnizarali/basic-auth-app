@@ -10,6 +10,7 @@
 - nx g @nx/nest:library --name=data-transfer-objects --directory=/libs/shared --buildable=true --importPath=@shared/data-transfer-objects --projectNameAndRootFormat=derived --simpleName=true
 
 - nx g @nx/js:library --name=interfaces --unitTestRunner=jest --directory=/libs/shared/interfaces --importPath=@shared/interfaces --projectNameAndRootFormat=derived --simpleName=true
+- nx g @nx/js:library --name=enums --unitTestRunner=jest --directory=/libs/shared/enums --importPath=@shared/enums --projectNameAndRootFormat=derived --simpleName=true
 
 ## ORM Helper
 

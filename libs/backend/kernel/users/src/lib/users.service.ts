@@ -11,6 +11,7 @@ export class UsersService {
 
   select = {
     id: true,
+    userName: true,
     firstName: true,
     lastName: true,
     emailAddress: true,
@@ -26,10 +27,12 @@ export class UsersService {
   async user(
     userWhereUniqueInput: Prisma.UsersWhereUniqueInput
   ): Promise<ListUserDto | null> {
-    return this.prisma.users.findUnique({
+    const result = await this.prisma.users.findUnique({
       where: userWhereUniqueInput,
       select: this.select,
     });
+
+    return result;
   }
 
   async users(params?: {
@@ -54,6 +57,7 @@ export class UsersService {
 
   async createUser(data: CreateUserDto): Promise<ListUserDto> {
     const model: Prisma.UsersCreateInput = {
+      userName: data.userName,
       firstName: data.firstName,
       lastName: data.lastName,
       emailAddress: data.emailAddress,

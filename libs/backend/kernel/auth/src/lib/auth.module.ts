@@ -1,11 +1,11 @@
 import { BackendUtilityHelpersModule } from '@backend/utility/helpers';
 import { Module } from '@nestjs/common';
-import { APP_GUARD } from '@nestjs/core';
+// import { APP_GUARD } from '@nestjs/core';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { BackendKernelAuthController } from './auth.controller';
 import { BackendKernelAuthService } from './auth.service';
-import { AuthGuard } from './jwt/jwt.guard';
+// import { AuthGuard } from './jwt/jwt.guard';
 import { JwtStrategy } from './jwt/jwt.strategy';
 
 @Module({
@@ -21,10 +21,10 @@ import { JwtStrategy } from './jwt/jwt.strategy';
   providers: [
     BackendKernelAuthService,
     JwtStrategy,
-    {
-      provide: APP_GUARD,
-      useClass: AuthGuard,
-    },
+    // {
+    //   provide: APP_GUARD,
+    //   useClass: AuthGuard,
+    // },
   ],
   exports: [BackendKernelAuthService],
 })

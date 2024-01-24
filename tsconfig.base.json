@@ -25,6 +25,7 @@
       "@shared/data-transfer-objects": [
         "libs/shared/data-transfer-objects/src/index.ts"
       ],
+      "@shared/enums": ["libs/shared/enums/src/index.ts"],
       "@shared/interfaces": ["libs/shared/interfaces/src/index.ts"]
     }
   },

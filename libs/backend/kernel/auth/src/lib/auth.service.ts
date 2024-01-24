@@ -6,9 +6,9 @@ export class BackendKernelAuthService {
   prisma = PrismaService;
 
   async findUser(email: string): Promise<PayloadDto> {
-    const user = await this.prisma.users.findUnique({
+    const user = await this.prisma.users.findFirst({
       where: {
-        emailAddress: email,
+        OR: [{ emailAddress: email }, { userName: email }],
       },
     });
 
@@ -19,6 +19,7 @@ export class BackendKernelAuthService {
     const result = new PayloadDto();
 
     result.email = user.emailAddress;
+    result.userName = user.userName;
     result.firstName = user.firstName;
     result.lastName = user.lastName;
     result.userId = user.id;

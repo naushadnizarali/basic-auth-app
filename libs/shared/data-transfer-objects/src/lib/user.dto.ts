@@ -6,6 +6,9 @@ export class CreateUserDto extends BaseDto {
   id!: number;
 
   @ApiProperty()
+  userName!: string;
+
+  @ApiProperty()
   firstName!: string;
 
   @ApiProperty()
@@ -33,6 +36,9 @@ export class CreateUserDto extends BaseDto {
 export class ListUserDto extends BaseDto {
   @ApiProperty()
   id!: number;
+
+  @ApiProperty()
+  userName!: string;
 
   @ApiProperty()
   firstName!: string;
