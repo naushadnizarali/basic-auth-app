@@ -6,14 +6,16 @@ import {
   OnInit,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApiHelperService } from '@frontend/utility/services';
-import { TApiResponse } from '@shared/interfaces';
+import { environment } from '@frontend/utility/environments';
+import { ApiHelperService, AuthService } from '@frontend/utility/services';
+import { IActionResult, ISession, TApiResponse } from '@shared/interfaces';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Directive()
 export class ComponentBase implements OnInit, OnDestroy, AfterViewInit {
   readonly apiHelperService: ApiHelperService;
+  readonly authService: AuthService;
 
   dialogRef: DynamicDialogRef | undefined;
   dialogService: DialogService;
@@ -23,6 +25,7 @@ export class ComponentBase implements OnInit, OnDestroy, AfterViewInit {
 
   constructor(private injector: Injector) {
     this.apiHelperService = this.injector.get(ApiHelperService);
+    this.authService = this.injector.get(AuthService);
     this.dialogService = this.injector.get(DialogService);
     this.router = this.injector.get(Router);
     this.confirmationService = this.injector.get(ConfirmationService);
@@ -49,7 +52,7 @@ export class ComponentBase implements OnInit, OnDestroy, AfterViewInit {
     params?: Record<string, string | number | boolean>
   ): Promise<TApiResponse> {
     return this.apiHelperService.getRaw(
-      `http://localhost:3344/api/${endpoint}`,
+      `${environment.baseApiUrl}${endpoint}`,
       params
     );
   }
@@ -57,9 +60,9 @@ export class ComponentBase implements OnInit, OnDestroy, AfterViewInit {
   async get<T>(
     endpoint: string,
     params?: Record<string, string | number | boolean>
-  ): Promise<TApiResponse<T>> {
+  ): Promise<IActionResult> {
     return this.apiHelperService.get<T>(
-      `http://localhost:3344/api/${endpoint}`,
+      `${environment.baseApiUrl}${endpoint}`,
       params
     );
   }
@@ -68,9 +71,9 @@ export class ComponentBase implements OnInit, OnDestroy, AfterViewInit {
     endpoint: string,
     body?: unknown,
     params?: Record<string, string | number | boolean>
-  ): Promise<TApiResponse<T>> {
+  ): Promise<IActionResult> {
     return this.apiHelperService.post<T>(
-      `http://localhost:3344/api/${endpoint}`,
+      `${environment.baseApiUrl}${endpoint}`,
       body,
       params
     );
@@ -80,9 +83,9 @@ export class ComponentBase implements OnInit, OnDestroy, AfterViewInit {
     endpoint: string,
     body?: unknown,
     params?: Record<string, string | number | boolean>
-  ): Promise<TApiResponse<T>> {
+  ): Promise<IActionResult> {
     return this.apiHelperService.put<T>(
-      `http://localhost:3344/api/${endpoint}`,
+      `${environment.baseApiUrl}${endpoint}`,
       body,
       params
     );
@@ -91,9 +94,9 @@ export class ComponentBase implements OnInit, OnDestroy, AfterViewInit {
   async delete<T>(
     endpoint: string,
     params?: Record<string, string | number | boolean>
-  ): Promise<TApiResponse<T>> {
+  ): Promise<IActionResult> {
     return this.apiHelperService.delete<T>(
-      `http://localhost:3344/api/${endpoint}`,
+      `${environment.baseApiUrl}${endpoint}`,
       params
     );
   }
@@ -152,5 +155,43 @@ export class ComponentBase implements OnInit, OnDestroy, AfterViewInit {
       detail: message,
     });
   }
-  // messages or toast end here
+
+  // Auth service start here
+  get isLoggedIn(): boolean {
+    return this.authService.isLoggedIn;
+  }
+
+  get currentUserSession(): ISession | null {
+    return this.authService.currentUserSession;
+  }
+
+  get permisssions() {
+    return this.authService.permisssions as string[];
+  }
+
+  get rolePermisssion() {
+    return this.authService.rolePermisssion as string[];
+  }
+
+  get userName() {
+    return this.authService.userName as string;
+  }
+
+  get firstName() {
+    return this.authService.firstName as string;
+  }
+
+  get userType() {
+    return this.authService.userType as string;
+  }
+
+  get userTypeId() {
+    return Number(this.authService.userTypeId);
+  }
+
+  get userId() {
+    return Number(this.authService.userId);
+  }
+
+  // Auth service end here
 }

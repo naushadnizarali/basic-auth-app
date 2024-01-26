@@ -1,13 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface IObject {
   [key: string]: any;
 }
 
 export interface IActionResult {
   isSuccess: boolean;
+  message?: string;
   statusCode?: number;
-  statusText?: string;
   data?: IObject[] | IObject | any;
-  error?: string;
+  errors?: Record<string, string[]>;
 }
 
 export interface IHeaders {

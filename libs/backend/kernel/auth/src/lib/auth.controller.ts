@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { AuthDto, Public } from '@shared/data-transfer-objects';
+import { AuthDto, Public, SessionDto } from '@shared/data-transfer-objects';
 import { BackendKernelAuthService } from './auth.service';
 
 @Controller('auth')
@@ -28,15 +28,15 @@ export class BackendKernelAuthController {
   @ApiResponse({
     status: HttpStatus.OK,
     description: 'Return bearer token',
-    type: AuthDto,
+    type: SessionDto,
     isArray: false,
   })
   @Post()
-  async loginUser(@Body() model: AuthDto): Promise<{ token: string }> {
+  async loginUser(@Body() model: AuthDto): Promise<SessionDto> {
     // Fetch from the database
     const user = await this.backendKernelAuthService.findUser(model.email);
 
-    const hashedPasswordFromDatabase = user.password; // Fetch from the database
+    const hashedPasswordFromDatabase = user.password ?? ''; // Fetch from the database
 
     // Compare the entered password with the hashed password from the database
     const passwordMatch = await this.passwordService.comparePassword(
@@ -48,17 +48,40 @@ export class BackendKernelAuthController {
       throw new UnauthorizedException('Invalid credentials');
     }
 
+    const {
+      userId,
+      userName,
+      email,
+      firstName,
+      lastName,
+      userTypeId,
+      userType,
+      isActive,
+    } = user;
+
     const payload = {
-      userId: user.userId,
-      email: user.email,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      userTypeId: user.userTypeId,
-      isActive: user.isActive,
+      userId,
+      userName,
+      email,
+      firstName,
+      lastName,
+      userTypeId,
+      userType,
+      isActive,
     };
 
     const accessToken = this.jwtService.sign(payload);
 
-    return { token: accessToken };
+    return {
+      userName,
+      accessToken,
+      userId,
+      email,
+      firstName,
+      lastName,
+      userTypeId,
+      userType,
+      isActive,
+    };
   }
 }

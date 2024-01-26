@@ -10,6 +10,13 @@ export class BackendKernelAuthService {
       where: {
         OR: [{ emailAddress: email }, { userName: email }],
       },
+      include: {
+        userType: {
+          select: {
+            title: true,
+          },
+        },
+      },
     });
 
     if (!user) {
@@ -24,6 +31,7 @@ export class BackendKernelAuthService {
     result.lastName = user.lastName;
     result.userId = user.id;
     result.userTypeId = user.userTypeId;
+    result.userType = user.userType.title;
     result.isActive = user.isActive;
     result.password = user.password;
 

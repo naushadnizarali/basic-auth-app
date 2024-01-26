@@ -1,5 +1,6 @@
 import { Component, Injector } from '@angular/core';
 import { ComponentBase } from '@frontend/utility/common';
+import { IAuth } from '@shared/interfaces';
 
 @Component({
   selector: 'feature-auth-login',
@@ -7,14 +8,25 @@ import { ComponentBase } from '@frontend/utility/common';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent extends ComponentBase {
+  model = <IAuth>{};
   constructor(injector: Injector) {
     super(injector);
   }
 
-  // override async ngOnInit(): Promise<void> {
-  //   const response = await this.get<any[]>(
-  //     'https://jsonplaceholder.typicode.com/todos/1'
-  //   );
-  //   console.log(response);
-  // }
+  async doAuth() {
+    if (!this.model) {
+      return;
+    }
+
+    const response = await this.post('auth', this.model);
+
+    if (!response.isSuccess) {
+      alert(JSON.stringify(response.errors));
+      return;
+    }
+
+    this.authService.setAuthSession(response.data);
+
+    this.navigate('/dashboard');
+  }
 }
