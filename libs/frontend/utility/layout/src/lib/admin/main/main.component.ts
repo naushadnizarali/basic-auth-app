@@ -2,11 +2,11 @@ import { Component, Injector } from '@angular/core';
 import { ComponentBase } from '@frontend/utility/common';
 
 @Component({
-  selector: 'feature-auth-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss',
+  selector: 'utility-layout-main',
+  templateUrl: './main.component.html',
+  styleUrl: './main.component.scss',
 })
-export class DashboardComponent extends ComponentBase {
+export class MainComponent extends ComponentBase {
   constructor(injector: Injector) {
     super(injector);
   }

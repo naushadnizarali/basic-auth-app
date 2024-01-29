@@ -8,7 +8,7 @@ export interface IActionResult {
   message?: string;
   statusCode?: number;
   data?: IObject[] | IObject | any;
-  errors?: Record<string, string[]>;
+  errors?: IObject[] | IObject | any | Record<string, string[]>;
 }
 
 export interface IHeaders {

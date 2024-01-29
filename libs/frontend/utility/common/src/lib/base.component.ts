@@ -140,16 +140,18 @@ export class ComponentBase implements OnInit, OnDestroy, AfterViewInit {
   // confirmation dialog or popup end here
 
   // messages or toast start here (primeng)
-  showSuccessMessage(message: string): void {
+  showSuccessMessage(message: string | undefined): void {
     this.messageService.add({
+      key: 'controls-toast',
       severity: 'success',
       summary: 'Success',
       detail: message,
     });
   }
 
-  showErrorMessage(message: string): void {
+  showErrorMessage(message: string | undefined): void {
     this.messageService.add({
+      key: 'controls-toast',
       severity: 'error',
       summary: 'Error',
       detail: message,

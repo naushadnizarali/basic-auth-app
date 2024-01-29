@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   ArgumentsHost,
   Catch,
@@ -9,7 +10,7 @@ import { IException } from '@shared/interfaces';
 import { Request, Response } from 'express';
 
 @Catch()
-export class HttpExceptionFilter<T> implements ExceptionFilter {
+export class HttpExceptionFilter implements ExceptionFilter {
   catch(exception: any, host: ArgumentsHost) {
     let statusCode: number;
     let message: string | object;
@@ -20,7 +21,7 @@ export class HttpExceptionFilter<T> implements ExceptionFilter {
 
     if (exception instanceof HttpException) {
       statusCode = exception.getStatus();
-      message = exception ? exception.getResponse() : 'INTERNAL SERVER ERROR';
+      message = exception ? exception.message : 'INTERNAL SERVER ERROR';
     } else if (typeof exception === 'object') {
       statusCode = exception.status
         ? (exception.status as number)
@@ -41,7 +42,7 @@ export class HttpExceptionFilter<T> implements ExceptionFilter {
       message: message,
       timestamp: new Date().toISOString(),
       path: request.url,
-      stackTrace: exception,
+      stackTrace: exception?.stack,
     });
   }
 }

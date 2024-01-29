@@ -38,9 +38,9 @@ export class ApiHelperService {
     } catch (error: any) {
       return {
         isSuccess: false,
-        message: error?.message,
+        message: error?.error?.message,
         statusCode: error?.status,
-        errors: error,
+        stackTrace: error?.error,
       };
     }
   }
@@ -93,9 +93,9 @@ export class ApiHelperService {
     } catch (error: any) {
       return {
         isSuccess: false,
-        message: error?.message,
+        message: error?.error?.message,
         statusCode: error?.status,
-        errors: error,
+        stackTrace: error?.error,
       };
     }
   }
@@ -120,9 +120,9 @@ export class ApiHelperService {
     } catch (error: any) {
       return {
         isSuccess: false,
-        message: error?.message,
+        message: error?.error?.message,
         statusCode: error?.status,
-        errors: error,
+        stackTrace: error?.error,
       };
     }
   }
@@ -147,9 +147,9 @@ export class ApiHelperService {
     } catch (error: any) {
       return {
         isSuccess: false,
-        message: error?.message,
+        message: error?.error?.message,
         statusCode: error?.status,
-        errors: error,
+        stackTrace: error?.error,
       };
     }
   }
@@ -173,9 +173,9 @@ export class ApiHelperService {
     } catch (error: any) {
       return {
         isSuccess: false,
-        message: error?.message,
+        message: error?.error?.message,
         statusCode: error?.status,
-        errors: error,
+        stackTrace: error?.error,
       };
     }
   }

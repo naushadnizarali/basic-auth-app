@@ -13,6 +13,13 @@ export class LoginComponent extends ComponentBase {
     super(injector);
   }
 
+  override ngOnInit(): Promise<void> | void {
+    console.log('isLoggedIn', this.isLoggedIn);
+    if (this.isLoggedIn) {
+      this.navigate('/u/dashboard');
+    }
+  }
+
   async doAuth() {
     if (!this.model) {
       return;
@@ -21,12 +28,12 @@ export class LoginComponent extends ComponentBase {
     const response = await this.post('auth', this.model);
 
     if (!response.isSuccess) {
-      alert(JSON.stringify(response.errors));
+      this.showErrorMessage(response.message);
       return;
     }
 
     this.authService.setAuthSession(response.data);
 
-    this.navigate('/dashboard');
+    this.navigate('/u/dashboard');
   }
 }
