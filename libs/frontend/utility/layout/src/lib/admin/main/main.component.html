@@ -1,12 +1,17 @@
-<div>
+<aside
+  class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3"
+  id="sidenav-main"
+>
   <utility-layout-sidebar></utility-layout-sidebar>
-  <div class="relative md:ml-64 bg-blueGray-100">
-    <utility-layout-navbar></utility-layout-navbar>
-    <utility-layout-header></utility-layout-header>
-    <div class="px-4 md:px-10 mx-auto w-full -m-24">
-      <p-toast key="controls-toast" position="top-right"></p-toast>
-      <router-outlet></router-outlet>
-      <utility-layout-footer></utility-layout-footer>
-    </div>
+</aside>
+<main
+  class="main-content position-relative max-height-vh-100 h-100 border-radius-lg"
+>
+  <utility-layout-navbar></utility-layout-navbar>
+  <div class="container-fluid py-4">
+    <p-toast key="controls-toast" position="top-right"></p-toast>
+    <router-outlet></router-outlet>
+    <utility-layout-footer></utility-layout-footer>
   </div>
-</div>
+</main>
+<utility-layout-r-sidebar></utility-layout-r-sidebar>

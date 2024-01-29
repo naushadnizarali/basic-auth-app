@@ -11,5 +11,4 @@ export class AppComponent extends ComponentBase {
   constructor(injector: Injector) {
     super(injector);
   }
-  title = 'web-portal';
 }

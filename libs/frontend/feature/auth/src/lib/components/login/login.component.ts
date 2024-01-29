@@ -21,7 +21,7 @@ export class LoginComponent extends ComponentBase {
   }
 
   async doAuth() {
-    if (!this.model) {
+    if (!this.model || !this.model.email || !this.model.password) {
       return;
     }
 

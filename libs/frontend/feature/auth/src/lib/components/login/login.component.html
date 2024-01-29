@@ -1,175 +1,150 @@
-<div>
-  <main>
-    <section class="relative w-full h-full py-40 min-h-screen">
-      <div
-        class="absolute top-0 w-full h-full bg-blueGray-800 bg-no-repeat bg-full"
-        style="background-image: url('assets/img/register_bg_2.png')"
-      ></div>
-      <div class="container mx-auto px-4 h-full">
-        <p-toast key="controls-toast" position="top-right"></p-toast>
-        <div class="flex content-center items-center justify-center h-full">
-          <div class="w-full lg:w-4/12 px-4">
-            <div
-              class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0"
-            >
-              <div class="rounded-t mb-0 px-6 py-6"></div>
-              <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
-                <!-- <div class="text-blueGray-400 text-center mb-5 font-bold"> -->
-                <div class="text-center mb-2">
-                  <!-- <small>Or sign in with credentials</small> -->
-                  <h6 class="text-blueGray-500 text-lg font-bold">Sign in</h6>
-                  <hr class="mt-6 border-b-1 border-blueGray-300" />
-                </div>
+<div class="container position-sticky z-index-sticky top-0">
+  <div class="row">
+    <div class="col-12">
+      <!-- Navbar -->
+      <!-- <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+      <div class="container-fluid pe-0">
+        <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="../pages/dashboard.html">
+          Soft UI Dashboard
+        </a>
+        <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon mt-2">
+            <span class="navbar-toggler-bar bar1"></span>
+            <span class="navbar-toggler-bar bar2"></span>
+            <span class="navbar-toggler-bar bar3"></span>
+          </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../pages/dashboard.html">
+                <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
+                Dashboard
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-2" href="../pages/profile.html">
+                <i class="fa fa-user opacity-6 text-dark me-1"></i>
+                Profile
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-2" href="../pages/sign-up.html">
+                <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
+                Sign Up
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-2" href="../pages/sign-in.html">
+                <i class="fas fa-key opacity-6 text-dark me-1"></i>
+                Sign In
+              </a>
+            </li>
+          </ul>
+          <li class="nav-item d-flex align-items-center">
+            <a class="btn btn-round btn-sm mb-0 btn-outline-primary me-2" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Online Builder</a>
+          </li>
+          <ul class="navbar-nav d-lg-block d-none">
+            <li class="nav-item">
+              <a href="https://www.creative-tim.com/product/soft-ui-dashboard" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark">Free download</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav> -->
+      <!-- End Navbar -->
+    </div>
+  </div>
+</div>
+<main class="main-content mt-0">
+  <section>
+    <div class="page-header min-vh-75">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+            <div class="card card-plain mt-8">
+              <div class="card-header pb-0 text-left bg-transparent">
+                <h3 class="font-weight-bolder text-info text-gradient">
+                  Welcome back
+                </h3>
+                <p class="mb-0">Enter your email and password to sign in</p>
+              </div>
+              <div class="card-body">
                 <form>
-                  <div class="relative w-full mb-3">
-                    <label
-                      class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                      htmlFor="grid-password"
-                    >
-                      Email
-                    </label>
+                  <label>Email</label>
+                  <div class="mb-3">
                     <input
                       type="email"
                       name="email"
                       [(ngModel)]="model.email"
-                      class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      class="form-control"
                       placeholder="Email"
+                      required="true"
+                      aria-label="Email"
+                      aria-describedby="email-addon"
                     />
                   </div>
-
-                  <div class="relative w-full mb-3">
-                    <label
-                      class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                      htmlFor="grid-password"
-                    >
-                      Password
-                    </label>
+                  <label>Password</label>
+                  <div class="mb-3">
                     <input
                       type="password"
                       name="password"
+                      required="true"
                       [(ngModel)]="model.password"
-                      class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      class="form-control"
                       placeholder="Password"
+                      aria-label="Password"
+                      aria-describedby="password-addon"
                     />
                   </div>
-                  <div>
-                    <label class="inline-flex items-center cursor-pointer">
-                      <input
-                        id="customCheckLogin"
-                        type="checkbox"
-                        class="form-checkbox border-0 text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150 rounded"
-                      />
-                      <span
-                        class="ml-2 text-sm font-semibold text-blueGray-600"
-                      >
-                        Remember me
-                      </span>
-                    </label>
-                  </div>
-
-                  <div class="text-center mt-6">
-                    <button
-                      (click)="doAuth()"
-                      class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                      type="button"
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="rememberMe"
+                      checked=""
+                    />
+                    <label class="form-check-label" for="rememberMe"
+                      >Remember me</label
                     >
-                      Sign In
+                  </div>
+                  <div class="text-center">
+                    <button
+                      type="submit"
+                      (click)="doAuth()"
+                      class="btn bg-gradient-info w-100 mt-4 mb-0"
+                    >
+                      Sign in
                     </button>
                   </div>
                 </form>
               </div>
-            </div>
-            <div class="flex flex-wrap mt-6 relative">
-              <div class="w-1/2">
-                <a href="javascript:void(0)" class="text-blueGray-200">
-                  <small>Forgot password?</small>
-                </a>
+              <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                <p class="mb-4 text-sm mx-auto">
+                  Don't have an account?
+                  <a
+                    href="javascript:;"
+                    class="text-info text-gradient font-weight-bold"
+                    >Sign up</a
+                  >
+                </p>
               </div>
-              <!-- <div class="w-1/2 text-right">
-                <a [routerLink]="['/auth/register']" class="text-blueGray-200">
-                  <small>Create new account</small>
-                </a>
-              </div> -->
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div
+              class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8"
+            >
+              <div
+                class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6"
+                style="
+                  background-image: url('assets/img/curved-images/curved6.jpg');
+                "
+              ></div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
-</div>
-
-<!-- <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-    <img
-      class="mx-auto h-10 w-auto"
-      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-      alt="Your Company"
-    />
-    <h2
-      class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
-    >
-      Sign in to your account
-    </h2>
-  </div>
-
-  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-    <form class="space-y-6" action="#" method="POST">
-      <div>
-        <label
-          for="email"
-          class="block text-sm font-medium leading-6 text-gray-900"
-          >Email address</label
-        >
-        <div class="mt-2">
-          <input
-            id="email"
-            [(ngModel)]="model.email"
-            name="email"
-            type="email"
-            autocomplete="email"
-            required
-            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-          />
-        </div>
-      </div>
-
-      <div>
-        <div class="flex items-center justify-between">
-          <label
-            for="password"
-            class="block text-sm font-medium leading-6 text-gray-900"
-            >Password</label
-          >
-          <div class="text-sm">
-            <a
-              href="#"
-              class="font-semibold text-indigo-600 hover:text-indigo-500"
-              >Forgot password?</a
-            >
-          </div>
-        </div>
-        <div class="mt-2">
-          <input
-            id="password"
-            [(ngModel)]="model.password"
-            name="password"
-            type="password"
-            autocomplete="current-password"
-            required
-            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-          />
-        </div>
-      </div>
-
-      <div>
-        <button
-          type="submit"
-          (click)="doAuth()"
-          class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >
-          Sign in
-        </button>
-      </div>
-    </form>
-  </div>
-</div> -->
+    </div>
+  </section>
+</main>

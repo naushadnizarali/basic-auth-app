@@ -1,53 +1,56 @@
-<footer class="block py-4">
-  <div class="container mx-auto px-4">
-    <hr class="mb-4 border-b-1 border-blueGray-200" />
-    <div class="flex flex-wrap items-center md:justify-between justify-center">
-      <div class="w-full md:w-4/12 px-4">
-        <div
-          class="text-sm text-blueGray-500 font-semibold py-1 text-center md:text-left"
-        >
-          Copyright © {{ date }}
+<footer class="footer pt-3">
+  <div class="container-fluid">
+    <div class="row align-items-center justify-content-lg-between">
+      <div class="col-lg-6 mb-lg-0 mb-4">
+        <div class="copyright text-center text-sm text-muted text-lg-start">
+          ©
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          made with <i class="fa fa-heart"></i> by
           <a
-            href="https://www.creative-tim.com?ref=na-footer-admin"
-            class="text-blueGray-500 hover:text-blueGray-700 text-sm font-semibold py-1"
+            href="https://peoplesourceplus.com/"
+            class="font-weight-bold"
+            target="_blank"
+            >PeopleSourcePlus</a
           >
-            Creative Tim
-          </a>
         </div>
       </div>
-      <div class="w-full md:w-8/12 px-4">
-        <ul class="flex flex-wrap list-none md:justify-end justify-center">
-          <li>
+      <div class="col-lg-6">
+        <ul
+          class="nav nav-footer justify-content-center justify-content-lg-end"
+        >
+          <!-- <li class="nav-item">
             <a
-              href="https://www.creative-tim.com?ref=na-footer-admin"
-              class="text-blueGray-600 hover:text-blueGray-800 text-sm font-semibold block py-1 px-3"
+              href="https://peoplesourceplus.com/"
+              class="nav-link text-muted"
+              target="_blank"
+              >PeopleSourcePlus</a
             >
-              Creative Tim
-            </a>
+          </li> -->
+          <li class="nav-item">
+            <a
+              href="https://peoplesourceplus.com/index.html#about"
+              class="nav-link text-muted"
+              target="_blank"
+              >About Us</a
+            >
           </li>
-          <li>
+          <li class="nav-item">
             <a
-              href="https://www.creative-tim.com/presentation?ref=na-footer-admin"
-              class="text-blueGray-600 hover:text-blueGray-800 text-sm font-semibold block py-1 px-3"
+              href="https://peoplesourceplus.com/index.html#team-partners"
+              class="nav-link text-muted"
+              target="_blank"
+              >Team</a
             >
-              About Us
-            </a>
           </li>
-          <li>
+          <li class="nav-item">
             <a
-              href="http://blog.creative-tim.com?ref=na-footer-admin"
-              class="text-blueGray-600 hover:text-blueGray-800 text-sm font-semibold block py-1 px-3"
+              href="https://peoplesourceplus.com/index.html#contact"
+              class="nav-link pe-0 text-muted"
+              target="_blank"
+              >Contact</a
             >
-              Blog
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://github.com/creativetimofficial/notus-angular/blob/main/LICENSE.md?ref=creativetim"
-              class="text-blueGray-600 hover:text-blueGray-800 text-sm font-semibold block py-1 px-3"
-            >
-              MIT License
-            </a>
           </li>
         </ul>
       </div>
