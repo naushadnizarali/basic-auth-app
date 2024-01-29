@@ -1,17 +1,67 @@
-<aside
-  class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3"
-  id="sidenav-main"
->
+<!-- Page Wrapper -->
+<div id="wrapper">
   <utility-layout-sidebar></utility-layout-sidebar>
-</aside>
-<main
-  class="main-content position-relative max-height-vh-100 h-100 border-radius-lg"
->
-  <utility-layout-navbar></utility-layout-navbar>
-  <div class="container-fluid py-4">
-    <p-toast key="controls-toast" position="top-right"></p-toast>
-    <router-outlet></router-outlet>
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="d-flex flex-column">
+    <!-- Main Content -->
+    <div id="content">
+      <!-- Topbar -->
+      <utility-layout-navbar></utility-layout-navbar>
+      <!-- End of Topbar -->
+
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
+        <router-outlet></router-outlet>
+      </div>
+      <!-- End Page Content -->
+    </div>
+    <!-- End of Main Content -->
+    <!-- Footer -->
     <utility-layout-footer></utility-layout-footer>
+    <!-- End of Footer -->
   </div>
-</main>
-<utility-layout-r-sidebar></utility-layout-r-sidebar>
+  <!-- End Content Wrapper -->
+</div>
+<!-- End Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+  <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<!-- <div
+  class="modal fade"
+  id="logoutModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+        <button
+          class="close"
+          type="button"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Select "Logout" below if you are ready to end your current session.
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">
+          Cancel
+        </button>
+        <a class="btn btn-primary" href="javascript:void(0)" (click)="logout()"
+          >Logout</a
+        >
+      </div>
+    </div>
+  </div>
+</div> -->

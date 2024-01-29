@@ -6,6 +6,4 @@ export * from './lib/admin/sidebar/sidebar.component';
 
 export * from './lib/admin/navbar/navbar.component';
 
-export * from './lib/admin/r-sidebar/r-sidebar.component';
-
 export * from './lib/admin/footer/footer.component';

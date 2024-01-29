@@ -195,5 +195,10 @@ export class ComponentBase implements OnInit, OnDestroy, AfterViewInit {
     return Number(this.authService.userId);
   }
 
+  logout() {
+    this.authService.logout();
+    this.navigate('/');
+  }
+
   // Auth service end here
 }
