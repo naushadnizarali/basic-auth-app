@@ -72,6 +72,13 @@ export class BackendKernelAuthController {
 
     const accessToken = this.jwtService.sign(payload);
 
+    const sessionTimeSeconds = Number(
+      String(process.env['JWT_EXPIRES_IN']).replace('s', '')
+    );
+
+    const expiryDate = new Date();
+    expiryDate.setSeconds(expiryDate.getSeconds() + sessionTimeSeconds);
+
     return {
       userName,
       accessToken,
@@ -82,6 +89,7 @@ export class BackendKernelAuthController {
       userTypeId,
       userType,
       isActive,
+      expireTime: expiryDate,
     };
   }
 }

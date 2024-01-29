@@ -23,10 +23,12 @@
       "@backend/utility/filters": ["libs/backend/utility/filters/src/index.ts"],
       "@backend/utility/helpers": ["libs/backend/utility/helpers/src/index.ts"],
       "@frontend/feature/auth": ["libs/frontend/feature/auth/src/index.ts"],
+      "@frontend/feature/user": ["libs/frontend/feature/user/src/index.ts"],
       "@frontend/utility/common": ["libs/frontend/utility/common/src/index.ts"],
       "@frontend/utility/environments": [
         "libs/frontend/utility/environments/src/index.ts"
       ],
+      "@frontend/utility/layout": ["libs/frontend/utility/layout/src/index.ts"],
       "@frontend/utility/services": [
         "libs/frontend/utility/services/src/index.ts"
       ],
