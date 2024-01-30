@@ -1,19 +1,12 @@
-# HireSafe
+# Basic Authentication App with JWT and Admin Panel Theme
 
-_Employee Verification Portal_
-
-## Overview
-
-HireSafe is a web application and backend API designed to facilitate the background verification process for employees, as directed by clients. The verification process includes multiple steps such as Education Verification, Employment Verification, National Identity Verification, Police Verification, and more.
+This project is a basic authentication application built using JWT (JSON Web Tokens) for authentication and a simple admin panel theme for the user interface.
 
 ## Features
 
-- **Education Verification:** Verify the educational background of employees.
-- **Employment Verification:** Confirm the employment history of individuals.
-- **National Identity Verification:** Verify the national identity details of employees.
-- **Police Verification:** Conduct background checks through police records.
-- **Customizable Verification Steps:** Easily configure additional verification steps based on client requirements.
-- **User Management:** Manage user roles, permissions, and authentication.
+- User authentication using JWT
+- Admin panel interface for managing users
+- Simple and customizable admin panel theme
 
 ## Technologies Used
 
@@ -47,8 +40,8 @@ npm i -g nx pnpm yarn npm env-cmd @angular/cli @nrwl/cli @nx/workspace @nestjs/c
 1. **Clone the Repository:**
 
 ```bash
-git clone https://github.com/naushadnizarali/hire-safe-apps.git
-cd hire-safe-apps
+git clone https://github.com/naushadnizarali/basic-auth-app.git
+cd basic-auth-app
 ```
 
 2. **Install Dependencies:**
