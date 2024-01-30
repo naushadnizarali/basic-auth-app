@@ -1,0 +1,35 @@
+{
+  "name": "backend-utility-database",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/backend/utility/database/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/backend/utility/database",
+        "tsConfig": "libs/backend/utility/database/tsconfig.lib.json",
+        "packageJson": "libs/backend/utility/database/package.json",
+        "main": "libs/backend/utility/database/src/index.ts",
+        "assets": ["libs/backend/utility/database/*.md"]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs backend-utility-database {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/backend/utility/database/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

@@ -9,7 +9,7 @@
       "options": {
         "cypressConfig": "apps/web-portal-e2e/cypress.config.ts",
         "testingType": "e2e",
-        "devServerTarget": "web-portal:serve"
+        "devServerTarget": "web-portal:serve:development"
       },
       "configurations": {
         "production": {
@@ -23,14 +23,8 @@
     "lint": {
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"]
-    },
-    "version": {
-      "executor": "@jscutlery/semver:version",
-      "options": {
-        "preset": "conventionalcommits"
-      }
     }
   },
-  "implicitDependencies": ["web-portal"],
-  "tags": []
+  "tags": [],
+  "implicitDependencies": ["web-portal"]
 }

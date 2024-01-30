@@ -1,0 +1,31 @@
+{
+  "name": "data-transfer-objects",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/data-transfer-objects/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/data-transfer-objects",
+        "tsConfig": "libs/shared/data-transfer-objects/tsconfig.lib.json",
+        "packageJson": "libs/shared/data-transfer-objects/package.json",
+        "main": "libs/shared/data-transfer-objects/src/index.ts",
+        "assets": ["libs/shared/data-transfer-objects/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/shared/data-transfer-objects/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}
